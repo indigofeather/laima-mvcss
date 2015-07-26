@@ -1,0 +1,41 @@
+// *************************************
+//
+//   Url helper
+//   -> for compass url functions
+//
+// *************************************
+
+// -------------------------------------
+//   Config
+// -------------------------------------
+
+$url-img: '../img/'!default
+$url-font: '../font/'!default
+
+// -------------------------------------
+//   Functions
+// -------------------------------------
+
+// ----- image-url ----- //
+// -> Return the path of image
+//
+// $path - path to image
+// $only-path - if set to true, will not prepend $url-img
+
+@function image-url($path, $only-path: false)
+  @if $only-path
+    @return unquote("url('#{$path}')")
+  @else
+    @return unquote("url('#{$url-img}#{$path}')")
+
+// ----- font-url ----- //
+// -> Return the path of font
+//
+// $path - path to font
+// $only-path - if set to true, will not prepend $url-font
+
+@function font-url($path, $only-path: false)
+  @if $only-path
+    @return unquote("url('#{$path}')")
+  @else
+    @return unquote("url('#{$url-font}#{$path}')")
